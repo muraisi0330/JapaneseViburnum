@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7588346194692413841}
   m_Layer: 7
   m_Name: LP_Bay_Door_snaps
-  m_TagString: DoorWithLock
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,9 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df53db64ecb95d2468a483cdd6e67d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 0}
-  countText: {fileID: 0}
-  textToDisplay: {fileID: 0}
+  isOpen: 0
+  isTouching: 0
   sound1: {fileID: 8300000, guid: be6a4d1e7f12b0d4ba195f9cf8b8e5e2, type: 3}
 --- !u!1 &5534712290994193732
 GameObject:

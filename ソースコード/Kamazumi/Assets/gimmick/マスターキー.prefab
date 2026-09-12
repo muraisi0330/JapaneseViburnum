@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2169674768698003}
   m_Layer: 0
   m_Name: "\u30DE\u30B9\u30BF\u30FC\u30AD\u30FC"
-  m_TagString: key
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
   objectToShow: {fileID: 0}
+  PINITemDatabase: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  itemIndex: 0

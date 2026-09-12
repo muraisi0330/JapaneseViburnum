@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 5008909522712944874}
   m_Layer: 7
   m_Name: ziku
-  m_TagString: Locker
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,6 +9,7 @@ public class HeadBobController : MonoBehaviour
     private float timer = 0f;
     private Vector3 startPos;
 
+    [SerializeField] private Player player;
 
     void Start()
     {
@@ -18,24 +19,32 @@ public class HeadBobController : MonoBehaviour
 
     void Update()
     {
-        // WASDや矢印キーの入力量を取得
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
         // 移動していない場合はカメラを初期位置に戻す
-        if (Mathf.Abs(horizontal) == 0f && Mathf.Abs(vertical) == 0f)
+        if (player.IsMoving())
         {
-            timer = 0f;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, Time.deltaTime * walkSpeed);
+            ResetCameraPosition();
         }
         else
         {
-            // 移動している場合はサイン波でカメラを揺らす
+            HandleHeadBob();
+        }
+    }
+    
+    void HandleHeadBob()
+    {
             timer += Time.deltaTime * walkSpeed;
             Vector3 pos = startPos;
             pos.y += Mathf.Sin(timer) * bobAmount;
             pos.x += Mathf.Cos(timer / 2f) * bobAmount; // 左右の揺れは少し遅らせる
             transform.localPosition = pos;
-        }
     }
+    // 移動していない場合はカメラを初期位置に戻す
+    void ResetCameraPosition()
+    {
+        timer = 0f;
+        transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, Time.deltaTime * walkSpeed);
+
+    }
+
+
 }

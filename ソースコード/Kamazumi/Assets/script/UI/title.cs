@@ -10,9 +10,8 @@ public class title : MonoBehaviour
     [SerializeField] AudioSettingsScript audioSettingsScript;
 
     // ロードの進捗状況を表示するUIなど
-    public IoadingScreenScript loadingUI;
+    public LoadingScreenManager loadingUI;
    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,7 @@ public class title : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
     //ゲーム開始の関数
-    public void Password()
+    public void OnStartGameClicked()
     {
         num = Slider.value;
         Time.timeScale = 1.0f;
@@ -33,21 +32,21 @@ public class title : MonoBehaviour
     
 
     //設定画面に移動する関数
-    public void Password2()
+    public void OnSettingsOpened()
     {
         PauseScreen.SetActive(false);
         settingsScreen.SetActive(true);
 
     }
     //タイトル画面に移動する関数
-    public void Password3()
+    public void OnReturnToMenuClicked()
     {
         PauseScreen.SetActive(true);
         settingsScreen.SetActive(false);
         audioSettingsScript.OnBGMVolumeChanged();
     }
     //ゲーム終了の関数
-    public void Password4()
+    public void OnQuitGameClicked()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了

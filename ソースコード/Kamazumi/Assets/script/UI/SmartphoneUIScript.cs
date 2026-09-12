@@ -8,16 +8,18 @@ public class SmartphoneUIScript : MonoBehaviour
     [SerializeField] private GameObject searchUI;
     //インベントリ画面のUI
     [SerializeField] private GameObject inventoryUI;
+    //カメラのUI
+    [SerializeField] private GameObject cameraUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     //スマートフォンのUIの状態を切り替える
     public void ToggleSmartphoneUI(bool isOpen)
@@ -37,6 +39,7 @@ public class SmartphoneUIScript : MonoBehaviour
         homeUI.SetActive(false);
         searchUI.SetActive(false);
         inventoryUI.SetActive(false);
+        cameraUI.SetActive(false);
     }
     //スマートフォンのUIを開く
     void OpenSmartphoneUI()
@@ -44,6 +47,7 @@ public class SmartphoneUIScript : MonoBehaviour
         homeUI.SetActive(true);
         searchUI.SetActive(false);
         inventoryUI.SetActive(false);
+        cameraUI.SetActive(false);
     }
 
     //スマートフォンのUIをホーム画面に切り替える
@@ -58,14 +62,18 @@ public class SmartphoneUIScript : MonoBehaviour
     {
         homeUI.SetActive(false);
         searchUI.SetActive(true);
-        inventoryUI.SetActive(false);
+
     }
     //スマートフォンのUIをインベントリ画面に切り替える
     public void SwitchToInventoryUI()
     {
         homeUI.SetActive(false);
-        searchUI.SetActive(false);
         inventoryUI.SetActive(true);
     }
-
+    //
+    public void SwitchToCameraUI()
+    {
+        homeUI.SetActive(false);
+        cameraUI.SetActive(true);
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;//UIを使うときに書きます。
 [RequireComponent(typeof(Rigidbody))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour , IDataPersistence
 {
     [Header("Move")]
     [SerializeField] private float walkSpeed = 5f;
@@ -61,6 +61,16 @@ public class Player : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
         stamina = maxStamina;
+    }
+
+    public void LoadData(GameData data)
+    {
+       transform.position = data._playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data._playerPosition  = transform.position;
     }
 
     private void Start()
@@ -178,7 +188,7 @@ public class Player : MonoBehaviour
     {
         bool usingSprint =
             Input.GetKey(sprintKey) &&
-            Input.GetAxisRaw("Vertical") > 0f &&
+            Input.GetAxisRaw(vertical) > 0f &&
             moveVelocity.sqrMagnitude > 0.1f &&
             canSprint;
 
@@ -257,7 +267,20 @@ public class Player : MonoBehaviour
             lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
-  
+    //移動中かどうかを判定して
+    public bool IsMoving()
+    {
+        if (!canControl) return true;
+        if (isPaused) return true;
+        if (isSmartphoneOpen) return true;
+        if (isHiding) return true;
+        if (Input.GetAxisRaw(horizontal) != 0) return false;
+        if (Input.GetAxisRaw(vertical) != 0) return false;
+        return true;
+
+    }
+
+
     // UI
     private void UpdateUI()
     {
@@ -266,11 +289,10 @@ public class Player : MonoBehaviour
             staminaSlider.maxValue = maxStamina;
             staminaSlider.value = stamina;
         }
-         bool IsMoving = moveVelocity.sqrMagnitude > 0.0f;
-        if (userManualUI.activeSelf == !IsMoving)
+        if (userManualUI.activeSelf == IsMoving())
             return;
 
-        userManualUI.SetActive(!IsMoving);
+        userManualUI.SetActive(IsMoving());
     }
 
    // Public API

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8529768639715638606}
   m_Layer: 7
   m_Name: LP_Bay_Door_snaps
-  m_TagString: DoorWithLock
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

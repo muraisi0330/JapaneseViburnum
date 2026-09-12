@@ -3,7 +3,7 @@
 public class GameOverScreen : MonoBehaviour
 {
     // ロードの進捗状況を表示するUIなど
-    public IoadingScreenScript loadingUI;
+    public LoadingScreenManager loadingUI;
    
     // Start is called before the first frame update
     void Start()

@@ -13,11 +13,12 @@ GameObject:
   - component: {fileID: 23959325982095037}
   - component: {fileID: 9020103214358917255}
   - component: {fileID: 9020103214358917256}
+  - component: {fileID: 7789234101669729659}
   - component: {fileID: 9020103214358917250}
-  - component: {fileID: 9020103214358917253}
+  - component: {fileID: 8400060253542375181}
   m_Layer: 7
   m_Name: LP_Bay_Door_snaps
-  m_TagString: hand
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,6 +197,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7789234101669729659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4044782197561623821}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df53db64ecb95d2468a483cdd6e67d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  isTouching: 0
+  sound1: {fileID: 8300000, guid: be6a4d1e7f12b0d4ba195f9cf8b8e5e2, type: 3}
 --- !u!114 &9020103214358917250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToShow: {fileID: 0}
---- !u!114 &9020103214358917253
+--- !u!114 &8400060253542375181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,19 +234,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4044782197561623821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33e232d25644f9741ba6adef9c8564b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 003d753c8837c5047b7cbeb28568edc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: 2434
+  pinData: {fileID: 11400000, guid: 3d2d4216e8dc10a48a10bc98031d0144, type: 2}
+  currentPINIndex: 0
   okButton: {fileID: 0}
   passwordText: {fileID: 0}
-  countText: {fileID: 0}
+  behaviour:
+  - {fileID: 7789234101669729659}
   objectToShow: {fileID: 0}
   passwordToShow: {fileID: 0}
   player: {fileID: 0}
   selectedVoice: {fileID: 8300000, guid: 705d9d6f070277949956dce0e334909f, type: 3}
   failureAudio: {fileID: 8300000, guid: cc999c8942a7a1645afb69862b0bd9cc, type: 3}
-  startupVoice: {fileID: 8300000, guid: be6a4d1e7f12b0d4ba195f9cf8b8e5e2, type: 3}
 --- !u!1 &6390008898853415409
 GameObject:
   m_ObjectHideFlags: 0

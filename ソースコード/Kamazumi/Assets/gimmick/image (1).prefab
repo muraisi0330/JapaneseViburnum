@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 21612159661568688}
   m_Layer: 7
   m_Name: image (1)
-  m_TagString: Image
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouched: 0
   password: 10
+  rotationValue: 10
 --- !u!65 &21612159661568688
 BoxCollider:
   m_ObjectHideFlags: 0

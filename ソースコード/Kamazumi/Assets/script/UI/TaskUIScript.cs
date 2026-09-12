@@ -8,11 +8,10 @@ public class TaskUIScript : MonoBehaviour
     [SerializeField]
     public Text taskText;
 
-    int taskNum = 0;
     // Start is called before the first frame update
     void Start()
     {
-        UpdateTaskUI();
+        UpdateTaskUI(0);
     }
 
     // Update is called once per frame
@@ -21,11 +20,10 @@ public class TaskUIScript : MonoBehaviour
         
     }
     //タスクの内容を更新するメソッド
-    public void UpdateTaskUI()
+    public void UpdateTaskUI(int ID)
     {
-        if (taskNum < 0) return; //タスクが存在しない場合は処理を終了する
-        if (taskNum >= PINIprogressScript.PINList.Count) return; //タスクのインデックスがリストの範囲外の場合は処理を終了する
-        taskText.text = PINIprogressScript.PINList[taskNum].taskName; //タスクの内容をタスクのUIに代入する
-        taskNum++; //次のタスクに進むためにタスクのインデックスを増やす
+        if (ID < 0) return; //タスクが存在しない場合は処理を終了する
+        if (ID >= PINIprogressScript.PINList.Count) return; //タスクのインデックスがリストの範囲外の場合は処理を終了する
+        taskText.text = PINIprogressScript.PINList[ID].taskName; //タスクの内容をタスクのUIに代入する
     }
 }

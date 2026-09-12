@@ -7,7 +7,7 @@ public class ClearJudgmentScript : MonoBehaviour
     public string sceneName;
 
     // ロードの進捗状況を表示するUIなど
-    public IoadingScreenScript loadingUI;
+    public LoadingScreenManager loadingUI;
 
  
 

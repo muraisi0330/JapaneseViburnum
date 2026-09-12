@@ -9,6 +9,7 @@ public class ClearUIScript : MonoBehaviour
 
     //特定の位置に来たらシーンを切り替えるための位置
     [SerializeField] private float changeScenePositionY = 100f;
+    [SerializeField] private float changeScenePositionYThreshold = 10f;
 
     public RectTransform rectTransform;
 
@@ -16,7 +17,7 @@ public class ClearUIScript : MonoBehaviour
     public string sceneName;
 
     // ロードの進捗状況を表示するUIなど
-    public IoadingScreenScript loadingUI;
+    public LoadingScreenManager loadingUI;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class ClearUIScript : MonoBehaviour
     //シーン移動の関数
     void ChangeScene()
     {
-       
+        if (rectTransform.anchoredPosition.y <= changeScenePositionYThreshold) return;
         if (!Input.anyKeyDown) return;
         loadingUI.StartLoad(sceneName);
     }

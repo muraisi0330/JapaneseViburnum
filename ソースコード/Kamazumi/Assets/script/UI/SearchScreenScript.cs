@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SearchScreenScript : MonoBehaviour
@@ -87,4 +89,10 @@ public class SearchScreenScript : MonoBehaviour
             CloseScreen();
         }
     }
+    void OnDisable()
+    {
+        CloseScreen();
+    }
+
+
 }

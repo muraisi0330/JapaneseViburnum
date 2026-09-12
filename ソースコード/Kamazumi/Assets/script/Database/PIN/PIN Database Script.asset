@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PINList:
   - PIN: 2434
-  - PIN: abc
+  - PIN: "\u30EA\u30AB"

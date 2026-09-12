@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1514204238073345465}
   - component: {fileID: 8421421450664510092}
   - component: {fileID: 5714314949679693897}
+  - component: {fileID: 1841048952855285377}
   m_Layer: 0
   m_Name: shrine_floor_1_1 (1)
   m_TagString: Untagged
@@ -116,6 +117,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1841048952855285377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914511203223103415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2999997, y: 0.19999999, z: 3.3}
+  m_Center: {x: 1.6500001, y: 0.099999994, z: -1.65}
 --- !u!1 &4890019848895624555
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +141,7 @@ GameObject:
   - component: {fileID: 2154724772083553919}
   - component: {fileID: 2428015994675010449}
   - component: {fileID: 7102963023415314160}
+  - component: {fileID: 7929053940229981609}
   m_Layer: 0
   m_Name: shrine_floor_1_1 (2)
   m_TagString: Untagged
@@ -199,3 +214,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7929053940229981609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890019848895624555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2999997, y: 0.19999999, z: 3.3}
+  m_Center: {x: 1.6500001, y: 0.099999994, z: -1.65}

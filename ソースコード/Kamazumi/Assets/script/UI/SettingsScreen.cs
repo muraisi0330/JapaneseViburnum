@@ -8,17 +8,19 @@ public class SettingsScreen : MonoBehaviour
     public GameObject homeScreen;//ホーム画面
     public GameObject pauseScreen;//ポーズ画面
     public GameObject settingsScreen;//設定画面
+    //操作説明画
+    public GameObject settingsScreenPrefab;
     public GameObject player;
     public AudioSettingsScript　audioSettingsScript;
 
     // ロードの進捗状況を表示するUIなど
-    public IoadingScreenScript loadingUI;
+    public LoadingScreenManager loadingUI;
     // Start is called before the first frame update
     void Start()
     {
     }
     //設定画面からポーズ画面に戻る関数
-    public void Password()
+    public void OnStartGameClicked()
     {
         this.gameObject.SetActive(false);
         Cursor.visible = false;
@@ -27,29 +29,47 @@ public class SettingsScreen : MonoBehaviour
         Time.timeScale = 1;
     }
     //ポーズ画面から設定画面に行く関数
-    public void Password2()
+    public void OnSettingsOpened()
     {
        
         pauseScreen.SetActive(false);
         settingsScreen.SetActive(true);
         
     }
+    public void OnSettingsOpened2()
+    {
+        pauseScreen.SetActive(false);
+        settingsScreenPrefab.SetActive(true);
+    }
+    public void OnSettingsOpened3()
+    {
+        pauseScreen.SetActive(true);
+        settingsScreenPrefab.SetActive(false);
+    }
+
     //設定画面からポーズ画面に戻る関数
-    public void Password3()
+    public void OnReturnToMenuClicked()
     {
         audioSettingsScript.OnBGMVolumeChanged();
         pauseScreen.SetActive(true);
         settingsScreen.SetActive(false);
     }
     //タイトル画面に戻る関数
-    public void Password4()
+    public void OnQuitGameClicked()
     {
         loadingUI.StartLoad("Title Scene");
         Time.timeScale = 1;
     }
-   
+    public void OnQuitGameClicked2()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
+#else
+    Application.Quit();//ゲームプレイ終了
+#endif
+    }
 
-  
+
 
     // Update is called once per frame
     void Update()

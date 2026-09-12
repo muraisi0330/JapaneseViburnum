@@ -2,7 +2,6 @@
 using UnityEngine.AI;
 using UnityEngine.Playables;
 using DG.Tweening;
-using DC.Scanner;
 
 [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
 public class Enemy : MonoBehaviour
@@ -26,7 +25,7 @@ public class Enemy : MonoBehaviour
     public GameObject enemyLight;
     public GameObject UI;
     public PlayableDirector timeline;
-    public TargetScanner scanner;
+    public EnemyVision scanner;
 
     //敵の速度  
     public float patrolSpeed = 2.5f;
@@ -61,13 +60,10 @@ public class Enemy : MonoBehaviour
         seq = DOTween.Sequence();
         agent.speed = patrolSpeed;
 
-        if (scanner == null)
-            Debug.LogError("Scanner未設定");
+       
     }
     private void OnDrawGizmos()
     {
-        if (scanner != null)
-            scanner.ShowGizmos();
     }
 
     void Update()
@@ -98,6 +94,7 @@ public class Enemy : MonoBehaviour
         {
             lostTimer -= Time.deltaTime;
             currentState = State.Chase;
+            agent.speed = chaseSpeed;
             return;
         }
 
@@ -239,7 +236,7 @@ public class Enemy : MonoBehaviour
             isSearching = true;
             agent.isStopped = true;
             animator.SetBool(animRun, false);
-
+           
             seq = DOTween.Sequence();
 
             seq.Append(transform.DORotate(new Vector3(0, -60, 0), 0.8f).SetRelative());
@@ -264,9 +261,13 @@ public class Enemy : MonoBehaviour
     // ターゲットの更新
     void UpdateTarget()
     {
-        if (scanner == null) return;
-
-        target = scanner.GetTarget();
+        if(scanner == null) return;
+        if (!scanner.IsPlayerInSight())
+        {
+            target = null;
+            return;
+        }
+        target = scanner.player.transform;
     }
     
     void SetDestination(Transform t)

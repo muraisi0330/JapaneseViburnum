@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PINList:
   - taskName: "\u30CE\u30FC\u30C8\u898B\u308B"
+  - taskName: "\u90E8\u5C4B\u3092\u51FA\u308B"
   - taskName: "\u63A2\u7D22\u3059\u308B"
